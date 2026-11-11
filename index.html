@@ -120,7 +120,6 @@ main{flex:1;display:flex;flex-direction:column;gap:18px;padding-block:18px 120px
         <div class="row"><span>Auftrag</span><span>78452</span></div>
         <div class="row"><span>Grund</span><span id="dReason"></span></div>
         <div class="row"><span>Menge</span><span id="dQty"></span></div>
-        <div class="row"><span>Dringlichkeit</span><span id="dLevel"></span></div>
         <div class="row"><span>Ihr Ansprechpartner</span><span>Innendienst (fester Kontakt)</span></div>
       </div>
       <p id="dNext" style="margin:0"></p>
@@ -153,10 +152,7 @@ $('#pics').addEventListener('change',e=>{
 $('#send').addEventListener('click',()=>{
   const l=level(); const r=document.querySelector('#reasons [aria-pressed="true"]').textContent;
   $('#dReason').textContent=r; $('#dQty').textContent=($('#qty').value||'–')+' von 40 Stück';
-  $('#dLevel').textContent=l.charAt(0).toUpperCase()+l.slice(1); $('#dLevel').style.color=col[l];
-  $('#dNext').textContent = l==='hoch'
-    ? 'Ihre Baustelle steht still. Lager und Logistik prüfen Ihren Fall jetzt gleichzeitig. Sie hören heute noch von uns.'
-    : 'Ihr Fall ist vollständig bei uns angekommen. Ihr Ansprechpartner meldet sich bei Ihnen.';
+  $('#dNext').textContent = 'Ihr Fall ist vollständig bei uns angekommen. Ihr Ansprechpartner meldet sich bei Ihnen.';
   $('#form').hidden=true; $('#footer').hidden=true; $('#done').hidden=false; window.scrollTo(0,0); });
 $('#again').addEventListener('click',()=>{ $('#done').hidden=true; $('#form').hidden=false; $('#footer').hidden=false; window.scrollTo(0,0); });
 paint();
