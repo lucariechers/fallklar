@@ -107,7 +107,6 @@ main{flex:1;display:flex;flex-direction:column;gap:18px;padding-block:18px 120px
         <div class="q"><span>Steht die Arbeit still?</span><div class="yn" data-k="0"><button class="ja" type="button" aria-pressed="true">Ja</button><button class="nein" type="button" aria-pressed="false">Nein</button></div></div>
         <div class="q"><span>Termin gefährdet?</span><div class="yn" data-k="1"><button class="ja" type="button" aria-pressed="true">Ja</button><button class="nein" type="button" aria-pressed="false">Nein</button></div></div>
         <div class="q"><span>Alternative vorhanden?</span><div class="yn" data-k="2"><button class="ja" type="button" aria-pressed="false">Ja</button><button class="nein" type="button" aria-pressed="true">Nein</button></div></div>
-        <div class="level"><span class="dot" id="dot"></span><span id="levelText"></span></div>
       </div>
     </section>
   </main>
@@ -141,7 +140,7 @@ const $=s=>document.querySelector(s);
 const ans=[true,true,false];
 function level(){ if(ans[0]) return 'hoch'; if(ans[1]&&!ans[2]) return 'hoch'; if(ans[1]||!ans[2]) return 'mittel'; return 'niedrig'; }
 const col={hoch:'var(--high)',mittel:'var(--mid)',niedrig:'var(--low)'};
-function paint(){ const l=level(); $('#dot').style.background=col[l]; $('#levelText').textContent='Stufe '+l.toUpperCase(); $('#levelText').style.color=col[l]; }
+function paint(){}
 document.querySelectorAll('#reasons .opt').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('#reasons .opt').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); }));
 document.querySelectorAll('.yn').forEach(g=>g.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
